@@ -11,7 +11,7 @@ import OrderModel from './src/models/OrderModel'
 dotenv.config()
 
 const app = express()
-const portaHTTP = 3333
+const port = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
@@ -42,7 +42,7 @@ UserModel.sync({ force: false }).then(() => {
 })
 
 app.on('DB Connected', () => {
-    app.listen(portaHTTP, () => {
-        console.log(`Servidor HTTP iniciado em http://localhost:${portaHTTP}`)
+    app.listen(port, () => {
+        console.log(`Servidor HTTP iniciado em http://localhost:${port}`)
     })
 })
